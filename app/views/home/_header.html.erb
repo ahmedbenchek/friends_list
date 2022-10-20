@@ -6,10 +6,38 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+	      <li class="nav-item">
+	      	<%= link_to "Show friends", friends_path, class: "navlink"%>
+	      </li>
+	      <br />
+	      <li class="nav-item">
+	      	<%= link_to "New Friend", new_friend_path, class: "navlink"%>
+	      </li>
+	      <br />
+	      <li class="nav-item">
+	      	<%= link_to "About Us", home_about_path, class: "navlink"%>
+	      </li>
+      <% end %>
       
-      <li class="nav-item">
-      	<%= link_to "About Us", home_about_path, class: "navlink"%>
-      </li>
+
+      <% if user_signed_in? %>
+		<li class="nav-item">
+		 	<%= link_to "Sign out", destroy_user_session_path, method: :delete,class: "navlink"%>
+		</li>
+		<br />
+		<li class="nav-item">
+		  	<%= link_to "Edit profile", edit_user_registration_path, class: "navlink"%>
+		</li>
+  	<% else %>
+  		<li class="nav nav-pills nav-fill">
+      	<%= link_to "Sign up", new_user_registration_path, class: "navlink"%>
+       </li>
+       <br />
+       <li class="nav nav-pills nav-fill">
+      	<%= link_to "Sign in", new_user_session_path, class: "navlink"%>
+       </li>
+  	<% end %>
       
       
     </ul>
