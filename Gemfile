@@ -8,6 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0'
+gem 'psych', '< 4.0.0'
 gem 'devise', '~> 4.8'
 # Use sqlite3 as the database for Active Record
 gem 'puma', '~> 3.7'
